@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve --port=8081"
+  },
   "dependencies": {
     "@11ty/eleventy": "^2.0.0"
   }
