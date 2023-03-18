@@ -14,6 +14,9 @@ title: Test Page
     My name is <%= title %>
     <div id="app">
       <p>{{ message }}</p>
+      <ul>
+        <li v-for="item in items">{{ item.name }}: {{ item.value }}</li>
+      </ul>
     </div>
   </body>
   <script src="/assets<%= page.filePathStem %>.js"></script>
