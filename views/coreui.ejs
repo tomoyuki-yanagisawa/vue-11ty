@@ -1,0 +1,62 @@
+---
+title: CORE UI Page
+appFile: bs
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
+
+    <!-- Option 1: CoreUI for Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4/dist/css/coreui.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>My name is <%= title %></h1>
+
+    <div id="app">
+      <!-- Button trigger modal -->
+      <button type="button" @click="setupForm(1)" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal">
+        Modal
+      </button>
+      <button type="button" @click="setupForm(2)" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal">
+        Modal
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal for {{ formId }}</h5>
+              <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input v-model="formData.amount" placeholder="edit me">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>formId: {{ formId }}</p>
+      <p>formData.amount: {{ formData.amount }}</p>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4/dist/js/coreui.bundle.min.js"></script>
+
+    <!-- Vue -->
+    <script src="/assets/vue/<%= appFile %>.js"></script>
+  </body>
+</html>
