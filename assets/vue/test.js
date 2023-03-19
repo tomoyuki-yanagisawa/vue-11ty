@@ -10,11 +10,16 @@ Vue.createApp({
   methods: {
     login(newValue) {
       Cookies.set('_account_id', newValue)
-      this.account_id = newValue
+      this.redirect_to(window.location.href)
     },
     logout() {
       Cookies.remove('_account_id')
-      this.account_id = null
+      this.redirect_to(window.location.href)
+    },
+    redirect_to(href) {
+      this.$nextTick(() => {
+        window.location.href = href
+      })
     }
   },
   data() {
