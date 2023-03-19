@@ -5,9 +5,21 @@ Vue.createApp({
       .then((data) => {
         this.items = data
       });
+    this.account_id = Cookies.get('_account_id') // check login
+  },
+  methods: {
+    login(newValue) {
+      Cookies.set('_account_id', newValue)
+      this.account_id = newValue
+    },
+    logout() {
+      Cookies.remove('_account_id')
+      this.account_id = null
+    }
   },
   data() {
     return {
+      account_id: null,
       message: 'Hello Vue!',
       items: []
     }

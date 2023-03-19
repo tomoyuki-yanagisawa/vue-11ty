@@ -10,6 +10,7 @@ appFile: test
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
   </head>
   <body>
     My name is <%= title %>
@@ -18,6 +19,13 @@ appFile: test
       <ul>
         <li v-for="item in items">{{ item.name }}: {{ item.value }}</li>
       </ul>
+      <p>login: {{ account_id }}</p>
+      <button type="button" @click="login(111)" v-if="!account_id">
+        login
+      </button>
+      <button type="button" @click="logout" v-else>
+        logout
+      </button>
     </div>
   </body>
   <script src="/assets/vue/<%= appFile %>.js"></script>
